@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	resources :text
   get 'text/index'
 
   root 'text#index'
