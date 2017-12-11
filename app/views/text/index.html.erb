@@ -1,2 +1,9 @@
-<h1>Hello World</h1>
-<p>Testestestest</p>
+<h1>Rails Rainbow Text Generator</h1>
+<p>Click a link to see it in RAINBOWS</p>
+<ul>
+  <% @texts.each do |text| %>
+  <li><%= link_to text.text, text %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Rainbow", action: "new" %>

@@ -1,9 +1,9 @@
-<%= form_with scope: :text, local: true do |form| %>
+<%= form_for @text, url: { action: "create" } do |form| %>
 	<p>
-		<%= form.label :text%></br>
+		<%= form.label :text %></br>
 		<%= form.text_field :text %>
 	</p>
 	<p>
-		<%= form.submit %>
+    <%= form.submit %>
 	</p>
 <% end %>

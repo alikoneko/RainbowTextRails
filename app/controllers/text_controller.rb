@@ -9,15 +9,21 @@ class TextController < ApplicationController
   end
 
   def create
-    @text = Text.new(params[:text])
+    @text = Text.new(text_params)
     if @text.save
       redirect_to @text
     else
       render "new"
+    end
   end
 
   def show
     @text = Text.find(params[:id])
   end
 
+  private
+  def text_params
+    allow = [:text]
+    params.require(:text).permit(allow)
+  end
 end
