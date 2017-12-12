@@ -63,9 +63,9 @@ module TextHelper
     rgb_arr << red
     rgb_arr << green
     rgb_arr << blue
-    rgb_arr.each do |value|
-      puts value
-    end
+    # rgb_arr.each do |value|
+    #   puts value
+    # end
 
     rgb_arr.map { |x| '%02x'%x }.join
   end
@@ -84,16 +84,16 @@ module TextHelper
         a_over_length = (a.to_f/length.to_f).to_f
         i_over_total = (i.to_f/total.to_f).to_f
         offset_over_half_length = (offset.to_f/half_length.to_f).to_f
-        puts("a_over_length: #{a_over_length}
-          \n i_over_total: #{i_over_total}
-          \n offset_over_half_length: #{offset_over_half_length}
-          \n 360*a_over_length*i_over_total*offset_over_half_length=#{360*a_over_length.to_f*i_over_total.to_f*offset_over_half_length.to_f}")
+        # puts("a_over_length: #{a_over_length}
+        #   \n i_over_total: #{i_over_total}
+        #   \n offset_over_half_length: #{offset_over_half_length}
+        #   \n 360*a_over_length*i_over_total*offset_over_half_length=#{360*a_over_length.to_f*i_over_total.to_f*offset_over_half_length.to_f}")
         color = get_rgb((360.0 * a_over_length.to_f * i_over_total.to_f * offset_over_half_length.to_f).to_f, 100, 100)
         #puts "#"+color
-        temp << "<span style='color:##{color}'>#{text_arr[a]}</span>"
+        temp << "<span style='color:##{color}; padding-left:#{offset.to_i}px'> #{text_arr[a]}</span>"
       end
-      rainbow_html += temp + "<br>"
+      rainbow_html  << temp << "<br>" 
     end
-    rainbow_html.html_safe
+    rainbow_html
   end
 end
