@@ -90,9 +90,36 @@ module TextHelper
         #   \n 360*a_over_length*i_over_total*offset_over_half_length=#{360*a_over_length.to_f*i_over_total.to_f*offset_over_half_length.to_f}")
         color = get_rgb((360.0 * a_over_length.to_f * i_over_total.to_f * offset_over_half_length.to_f).to_f, 100, 100)
         #puts "#"+color
+        temp << "<span style='color:##{color}'> #{text_arr[a]}</span>"
+      end
+      rainbow_html << "<span style='padding-left:#{offset.to_i}px'>&nbsp</span>"  << temp << "<br>" 
+    end
+    rainbow_html
+  end
+
+  def text_to_rgb_aethestic(text)
+    text_arr = text.split('')
+    length = text_arr.length
+    half_length = length / 2.0
+    rainbow_html = ""
+    total = length * 1.5
+
+    for i in 0..total.to_i
+      offset = (length + Math.sin(i/2.5) * half_length)
+      temp = ""
+      for a in 0..length.to_i
+        a_over_length = (a.to_f/length.to_f).to_f
+        i_over_total = (i.to_f/total.to_f).to_f
+        offset_over_half_length = (offset.to_f/half_length.to_f).to_f
+        # puts("a_over_length: #{a_over_length}
+        #   \n i_over_total: #{i_over_total}
+        #   \n offset_over_half_length: #{offset_over_half_length}
+        #   \n 360*a_over_length*i_over_total*offset_over_half_length=#{360*a_over_length.to_f*i_over_total.to_f*offset_over_half_length.to_f}")
+        color = get_rgb((360.0 * a_over_length.to_f * i_over_total.to_f * offset_over_half_length.to_f).to_f, 100, 100)
+        #puts "#"+color
         temp << "<span style='color:##{color}; padding-left:#{offset.to_i}px'> #{text_arr[a]}</span>"
       end
-      rainbow_html  << temp << "<br>" 
+      rainbow_html << temp << "<br>" 
     end
     rainbow_html
   end

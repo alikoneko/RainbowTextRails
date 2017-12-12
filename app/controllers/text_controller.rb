@@ -21,6 +21,10 @@ class TextController < ApplicationController
     @text = Text.find(params[:id])
   end
 
+  def show_aesthetic
+    @text = Text.find(params[:id])
+  end
+
   private
   def text_params
     allow = [:text]
