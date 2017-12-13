@@ -1,3 +1,17 @@
 
-<h1><%=raw text_to_rgb(@text.text) %></h1>
-<%= link_to "Go back home", action: "index" %> <%= link_to "New Rainbow", action: "new" %>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <h1>
+      <% if Date::DAYNAMES[Date.today.wday] == "Wednesday"%>
+        <%= raw text_to_rgb_aethestic(@text.text) %>
+      <% else %>
+        <%=raw text_to_rgb(@text.text) %>
+      <% end %>
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <%= link_to "Go back home", action: "index" %> <%= link_to "New Rainbow", action: "new" %>
+  </div>
+</div>
