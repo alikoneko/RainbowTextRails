@@ -1,10 +1,16 @@
-<%= form_for @text, url: { action: "create" } do |form| %>
-	<p>
-    <%= @text.errors.full_messages.first if @text.errors.any? %></br>
-		<%= form.label :text %></br>
-		<%= form.text_area :text %>
-	</p>
-	<p>
-    <%= form.submit %>
-	</p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <%= form_for @text, url: { action: "create" } do |form| %>
+      	<p>
+          <%= @text.errors.full_messages.first if @text.errors.any? %></br>
+      		<%= form.label :text %></br>
+      		<%= form.text_area :text, :class => 'form-control' %>
+      	</p>
+      	<p>
+          <%= form.submit %>
+      	</p>
+      <% end %>
+    </div>
+  </div>
+</div>

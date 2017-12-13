@@ -3,17 +3,19 @@
   <p class="lead">Is it Wednesday? Do you need you A E S T H E T I C fix?</p>
   <p class="lead">Click a link or create a new one to add to the list.</p>
 </div>
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12">
-    <ul>
-    <% @texts.each do |text| %>
-    <li><%= link_to text.text, text %></li>
-    <% end %>
-    </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <ul>
+      <% @texts.each do |text| %>
+      <li><%= link_to text.text, text %></li>
+      <% end %>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12" style="padding-left: 30px">
-   <%= link_to "New A E S T H E T I C", "text/new/", class:  'btn btn-primary' %>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="padding-left: 30px">
+     <%= link_to "New A E S T H E T I C", "text/new/", class:  'btn btn-primary' %>
+    </div>
   </div>
 </div>
